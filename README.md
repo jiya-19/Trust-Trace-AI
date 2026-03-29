@@ -171,6 +171,8 @@ TrustTrace-AI/
 ├── app.py                  # Main Streamlit app
 ├── README.md               # Project documentation
 ├── requirements.txt        # Project dependencies
+├── .streamlit/
+│   └── config.toml
 ├── test.py                 # Test script
 │
 ├── agents/                 # Specialized agent modules
