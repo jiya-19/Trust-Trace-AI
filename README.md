@@ -167,20 +167,29 @@ The Streamlit dashboard allows users to:
 ```bash
 TrustTrace-AI/
 │
+├── .env                    # Environment variables
 ├── app.py                  # Main Streamlit app
-├── requirements.txt        # Project dependencies
 ├── README.md               # Project documentation
+├── requirements.txt        # Project dependencies
+├── test.py                 # Test script
 │
-├── utils/
-│   ├── orchestrator.py     # End-to-end workflow orchestration
-│   ├── llm.py              # Gemini LLM service
-│   ├── ...                 # Agent logic / helper modules
+├── agents/                 # Specialized agent modules
+│   ├── action_agent.py
+│   ├── analysis_agent.py
+│   ├── audit_agent.py
+│   ├── decision_agent.py
+│   └── detection_agent.py
 │
-└── data/
-    └── ...                 # Fraud cases / retrieval context (if used)
+├── data/                   # Data sources
+│   └── fraud_examples.json # Example fraud cases
+│
+├── rag/                    # Retrieval-Augmented Generation logic
+│   └── retrieval_agent.py
+│
+└── utils/                  # Utility and core modules
+    ├── llm.py              # Gemini LLM service
+    └── orchestrator.py     # End-to-end workflow orchestration
 ```
-
-> Update this section if your actual folder structure is slightly different.
 
 ---
 
@@ -199,19 +208,10 @@ pip install -r requirements.txt
 
 ### 3) Set your Gemini API key
 
-#### Windows (Command Prompt)
-```bash
-set GEMINI_API_KEY=your_api_key
-```
+Use the `.env` file in the root of the project directory and add your key:
 
-#### Windows (PowerShell)
-```bash
-$env:GEMINI_API_KEY="your_api_key"
-```
-
-#### Linux / Mac
-```bash
-export GEMINI_API_KEY="your_api_key"
+```env
+GEMINI_API_KEY=your_api_key
 ```
 
 ---
